@@ -2,7 +2,7 @@ import Card from "../../components/card";
 import Loading from "../../components/loading";
 import Tabs from "../../components/tabs";
 
-export default function Dashboard() {
+export default function Dashboard(props) {
   return (
     <div className="flex flex-col justify-start items-center w-full gap-10 text-slate-600 min-h-screen bg-yellow-200">
       <header className="max-w-4xl w-full flex flex-col items-start pt-10 gap-2 sm:w-8/12 px-10 sm:px-0">
