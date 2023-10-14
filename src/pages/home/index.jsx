@@ -7,7 +7,7 @@ export default function Home() {
       <header className="w-full flex flex-col items-center gap-2">
         <h1 className="text-2xl font-bold">Pokédex</h1>
         <p className="">O seu catálogo de pokemons.</p>
-        <div className="w-1/2">
+        <div className="w-3/4 sm:w-3/5 md:w-2/4 lg:w-1/3">
           <input
             type="text"
             className="border bg-slate-50 border-slate-200 text-slate-200 mt-4 w-full py-2 px-4 rounded-full"
