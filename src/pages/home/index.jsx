@@ -18,7 +18,7 @@ export default function Home() {
         setLoading(false);
       })
       .catch((error) => {
-        console.log(error);
+        toast.error("Pokemon não encontrado!");
         setLoading(false);
       });
   }
