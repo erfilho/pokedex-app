@@ -1,27 +1,44 @@
+import { Link } from "react-router-dom";
+
 export default function Tabs() {
   return (
     <div>
       <div className="flex p-2 gap-4 ">
-        <button className="py-2 border-4 border-slate-700 text-slate-50 hover:border-b-slate-50">
+        <Link
+          to="data"
+          className="py-1 text-slate-50 relative before:absolute before:w-full before:h-1 before:bg-slate-600 before:rounded before:bottom-0 before:invisible before:hover:visible"
+        >
           {" "}
           Dados{" "}
-        </button>
-        <button className="py-2 border-4 border-slate-700 text-slate-50 hover:border-b-slate-50">
+        </Link>
+        <Link
+          to="location"
+          className="py-1 text-slate-50 relative before:absolute before:w-full before:h-1 before:bg-slate-600 before:rounded before:bottom-0 before:invisible before:hover:visible"
+        >
           {" "}
           Localizações{" "}
-        </button>
-        <button className="py-2 border-4 border-slate-700 text-slate-50 hover:border-b-slate-50">
+        </Link>
+        <Link
+          to="data"
+          className="py-1 text-slate-50 relative before:absolute before:w-full before:h-1 before:bg-slate-600 before:rounded before:bottom-0 before:invisible before:hover:visible"
+        >
           {" "}
           Habilidades{" "}
-        </button>
-        <button className="py-2 border-4 border-slate-700 text-slate-50 hover:border-b-slate-50">
+        </Link>
+        <Link
+          to="data"
+          className="py-1 text-slate-50 relative before:absolute before:w-full before:h-1 before:bg-slate-600 before:rounded before:bottom-0 before:invisible before:hover:visible"
+        >
           {" "}
           Métricas{" "}
-        </button>
-        <button className="py-2 border-4 border-slate-700 text-slate-50 hover:border-b-slate-50">
+        </Link>
+        <Link
+          to="/"
+          className="py-1 text-slate-50 relative before:absolute before:w-full before:h-1 before:bg-slate-600 before:rounded before:bottom-0 before:invisible before:hover:visible"
+        >
           {" "}
           Sair{" "}
-        </button>
+        </Link>
       </div>
     </div>
   );
