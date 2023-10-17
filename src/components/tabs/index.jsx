@@ -19,14 +19,14 @@ export default function Tabs() {
           Localizações{" "}
         </Link>
         <Link
-          to="data"
+          to="habilities"
           className="py-1 text-slate-50 relative before:absolute before:w-full before:h-1 before:bg-slate-600 before:rounded before:bottom-0 before:invisible before:hover:visible"
         >
           {" "}
           Habilidades{" "}
         </Link>
         <Link
-          to="data"
+          to="metrics"
           className="py-1 text-slate-50 relative before:absolute before:w-full before:h-1 before:bg-slate-600 before:rounded before:bottom-0 before:invisible before:hover:visible"
         >
           {" "}

@@ -44,7 +44,7 @@ export default function Dashboard(props) {
           <main className="bg-slate-700 max-w-4xl w-full sm:w-8/12 rounded-t-3xl flex-1 sm:flex-initial sm:rounded-3xl p-4 relative">
             <div>
               <img
-                src={pokemon?.sprites?.front_default}
+                src={pokemon?.sprites?.other["official-artwork"]?.front_default}
                 className="w-36 h-36 absolute right-0 -top-36 lg:w-48 lg:h-48 lg:-top-24"
                 alt="Pikachu"
               ></img>
