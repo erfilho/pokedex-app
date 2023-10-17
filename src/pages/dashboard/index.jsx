@@ -17,7 +17,7 @@ export default function Dashboard(props) {
       .then(({ data }) => {
         setPokemon(data);
         console.log(data);
-        setLoading(false);
+        // setLoading(false);
       })
       .catch((error) => {
         navigate("/");
