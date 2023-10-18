@@ -15,7 +15,7 @@ export default function Home() {
     axios
       .get(`https://pokeapi.co/api/v2/pokemon/${search}`)
       .then(({ data: { id } }) => {
-        navigate(`/dash/${id}`);
+        navigate(`/dash/${id}/data`);
         setLoading(false);
       })
       .catch((error) => {

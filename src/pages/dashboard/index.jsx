@@ -4,10 +4,12 @@ import Loading from "../../components/loading";
 import Tabs from "../../components/tabs";
 import { Outlet, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import "./style.css";
 
 export default function Dashboard() {
   const [pokemon, setPokemon] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [type, setType] = useState("normal");
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -17,6 +19,7 @@ export default function Dashboard() {
       .then(({ data }) => {
         setPokemon(data);
         console.log(data);
+        setType(data.types[0].type.name);
         setLoading(false);
       })
       .catch((error) => {
@@ -27,21 +30,29 @@ export default function Dashboard() {
   }, [id]);
 
   return (
-    <div className="flex flex-col justify-start items-center w-full gap-10 text-slate-600 min-h-screen bg-yellow-200">
+    <div
+      className={`flex flex-col justify-start items-center w-full gap-10 text-slate-600 min-h-screen ${
+        type ? type : normal
+      }`}
+    >
       {loading ? (
         <Loading />
       ) : (
         <>
           <header className="max-w-4xl w-full flex flex-col items-start pt-10 gap-2 sm:w-8/12 px-10 sm:px-0">
             <div>
-              <h1 className="text-4xl font-semibold capitalize">
-                {" "}
-                {pokemon?.name}{" "}
+              <h1 className="text-4xl font-semibold capitalize text-slate-800">
+                {pokemon?.name}
               </h1>
-              <p className="text-black opacity-30 text-xl"> #{pokemon?.id} </p>
-              <p className="text-lg py-1 font-medium text-center bg-slate-600 rounded-full text-yellow-200 uppercase">
-                {pokemon.types[0].type.name}{" "}
+              <p className="text-xl mt-1 text-black opacity-50">
+                {" "}
+                #{pokemon?.id}{" "}
               </p>
+              <span
+                className={`inline-block text-lg py-1 px-4 font-medium mt-2 text-center bg-slate-700 rounded-full uppercase ${type}`}
+              >
+                {type}
+              </span>
             </div>
           </header>
           <main className="bg-slate-700 max-w-4xl w-full sm:w-8/12 rounded-t-3xl flex-1 sm:flex-initial sm:rounded-3xl p-4 relative">
