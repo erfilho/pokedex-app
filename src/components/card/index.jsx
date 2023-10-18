@@ -1,21 +1,17 @@
 import { Link } from "react-router-dom";
 
-export default function Card() {
+export default function Card({ image, name, id, type }) {
   return (
     <Link
-      to="/dash"
+      to={`/dash/${id}`}
       className="flex flex-row text-slate-900 bg-yellow-200 items-center justify-start gap-2 px-5 py-2 rounded-2xl"
     >
-      <img
-        src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png"
-        className="w-28 h-28 object-cover"
-        alt="Pikachu"
-      ></img>
+      <img src={image} className="w-28 h-28 object-cover" alt="Pikachu"></img>
       <div className="flex flex-col justify-center gap-1">
-        <h3 className="text-lg font-medium"> Pikachu </h3>
-        <p className="text-black opacity-30 text-sm"> #01 </p>
-        <p className="text-sm bg-slate-50 rounded-full py-0.5 px-2 text-yellow-200 uppercase">
-          Eletrico{" "}
+        <h3 className="text-lg font-medium capitalize"> {name} </h3>
+        <p className="text-black opacity-30 text-sm"> {"#" + id} </p>
+        <p className="text-sm bg-slate-50 rounded-full py-0.5 px-2 text-yellow-200 text-center uppercase">
+          {type}{" "}
         </p>
       </div>
     </Link>

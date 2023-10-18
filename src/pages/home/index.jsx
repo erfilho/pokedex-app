@@ -25,6 +25,51 @@ export default function Home() {
       });
   }
 
+  const sugest = [
+    {
+      image:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
+      name: "Pikachu",
+      id: 25,
+      type: "eletric",
+    },
+    {
+      image:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
+      name: "Charmander",
+      id: 4,
+      type: "fire",
+    },
+    {
+      image:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+      name: "Bulbasaur",
+      id: 1,
+      type: "grass",
+    },
+    {
+      image:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+      name: "Squirtle",
+      id: 7,
+      type: "water",
+    },
+    {
+      image:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/19.png",
+      name: "Rattata",
+      id: 19,
+      type: "normal",
+    },
+    {
+      image:
+        "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/109.png",
+      name: "Koffing",
+      id: 109,
+      type: "poison",
+    },
+  ];
+
   return (
     <div className="flex flex-col justify-center items-center w-full gap-10 text-slate-100 min-h-screen bg-red-500">
       <header className="w-full flex flex-col items-center gap-2">
@@ -48,12 +93,9 @@ export default function Home() {
       <main className="bg-slate-50 max-w-4xl w-full sm:w-8/12 rounded-t-3xl flex-1 sm:flex-initial sm:rounded-3xl p-4">
         <h2 className="text-slate-300 px-2 pb-4"> Sugestões </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {sugest.map((pokemon) => (
+            <Card {...pokemon} key={pokemon.id} />
+          ))}
         </div>
       </main>
       {loading && <Loading />}
