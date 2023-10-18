@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import Card from "../../components/card";
 import Loading from "../../components/loading";
 import Tabs from "../../components/tabs";
 import { Outlet, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import "./style.css";
+import ArrowLeft from "../../assets/chevron-left.svg";
+import ArrowRight from "../../assets/chevron-right.svg";
 
 export default function Dashboard() {
   const [pokemon, setPokemon] = useState(null);
@@ -18,7 +18,6 @@ export default function Dashboard() {
       .get(`https://pokeapi.co/api/v2/pokemon/${id}`)
       .then(({ data }) => {
         setPokemon(data);
-        console.log(data);
         setType(data.types[0].type.name);
         setLoading(false);
       })
@@ -29,10 +28,15 @@ export default function Dashboard() {
       });
   }, [id]);
 
+  function changePokemon(id) {
+    setLoading(true);
+    navigate(`/dash/${id}/data`);
+  }
+
   return (
     <div
       className={`flex flex-col justify-start items-center w-full gap-10 text-slate-600 min-h-screen ${
-        type ? type : normal
+        type ? type : "normal"
       }`}
     >
       {loading ? (
@@ -45,7 +49,6 @@ export default function Dashboard() {
                 {pokemon?.name}
               </h1>
               <p className="text-xl mt-1 text-black opacity-50">
-                {" "}
                 #{pokemon?.id}{" "}
               </p>
               <span
@@ -60,12 +63,28 @@ export default function Dashboard() {
               <img
                 src={pokemon?.sprites?.other["official-artwork"]?.front_default}
                 className="w-36 h-36 absolute right-0 -top-36 lg:w-48 lg:h-48 lg:-top-24"
-                alt="Pikachu"
+                alt={pokemon?.name}
               ></img>
               <Tabs />
               <Outlet />
             </div>
           </main>
+          <div className="max-w-4xl flex justify-between w-full">
+            <button
+              onClick={() => changePokemon(pokemon?.id - 1)}
+              className="flex gap-2 items-center text-slate-200 py-2 pe-6 ps-4 rounded-full bg-slate-700"
+            >
+              <img src={ArrowLeft} alt="Anterior" />
+              Anterior
+            </button>
+            <button
+              onClick={() => changePokemon(pokemon?.id + 1)}
+              className="flex gap-2 items-center text-slate-200 py-1 pe-4 ps-6 rounded-full bg-slate-700"
+            >
+              Próximo
+              <img src={ArrowRight} alt="Próximo" />
+            </button>
+          </div>
         </>
       )}
     </div>

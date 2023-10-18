@@ -31,7 +31,7 @@ export default function Home() {
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
       name: "Pikachu",
       id: 25,
-      type: "eletric",
+      type: "electric",
     },
     {
       image:
@@ -73,9 +73,9 @@ export default function Home() {
   return (
     <div className="flex flex-col justify-center items-center w-full gap-10 text-slate-100 min-h-screen bg-red-500">
       <header className="w-full flex flex-col items-center gap-2">
-        <h1 className="text-2xl font-bold">Pokédex</h1>
+        <h1 className="text-2xl md:text-4xl font-bold">Pokédex</h1>
         <p className="">O seu catálogo de pokemons.</p>
-        <div className="flex w-3/4 sm:w-3/5 md:w-2/4 lg:w-1/3">
+        <div className="flex w-3/4 sm:w-3/5 md:w-2/4 lg:w-1/3 mt-4">
           <input
             onChange={(e) => setSearch(e.target.value)}
             type="text"
@@ -90,8 +90,8 @@ export default function Home() {
           </button>
         </div>
       </header>
-      <main className="bg-slate-50 max-w-4xl w-full sm:w-8/12 rounded-t-3xl flex-1 sm:flex-initial sm:rounded-3xl p-4">
-        <h2 className="text-slate-300 px-2 pb-4"> Sugestões </h2>
+      <main className="bg-slate-50 max-w-4xl w-full sm:w-8/12 rounded-t-3xl flex-1 sm:flex-initial sm:rounded-3xl p-6">
+        <h2 className="text-slate-300 px-2 pb-4 uppercase"> Sugestões </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {sugest.map((pokemon) => (
             <Card {...pokemon} key={pokemon.id} />
