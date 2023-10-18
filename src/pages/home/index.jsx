@@ -3,6 +3,7 @@ import Card from "../../components/card";
 import Loading from "../../components/loading";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function Home() {
   const [search, setSearch] = useState("");
@@ -18,7 +19,8 @@ export default function Home() {
         setLoading(false);
       })
       .catch((error) => {
-        toast.error("Pokemon não encontrado!");
+        console.log(error);
+        toast.error("Pokemon não encontrado");
         setLoading(false);
       });
   }
@@ -55,6 +57,7 @@ export default function Home() {
         </div>
       </main>
       {loading && <Loading />}
+      <Toaster />
     </div>
   );
 }

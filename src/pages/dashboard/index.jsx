@@ -5,7 +5,7 @@ import Tabs from "../../components/tabs";
 import { Outlet, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
-export default function Dashboard(props) {
+export default function Dashboard() {
   const [pokemon, setPokemon] = useState(null);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
@@ -17,7 +17,7 @@ export default function Dashboard(props) {
       .then(({ data }) => {
         setPokemon(data);
         console.log(data);
-        // setLoading(false);
+        setLoading(false);
       })
       .catch((error) => {
         navigate("/");
@@ -34,10 +34,13 @@ export default function Dashboard(props) {
         <>
           <header className="max-w-4xl w-full flex flex-col items-start pt-10 gap-2 sm:w-8/12 px-10 sm:px-0">
             <div>
-              <h1 className="text-4xl font-semibold"> {pokemon?.name} </h1>
+              <h1 className="text-4xl font-semibold capitalize">
+                {" "}
+                {pokemon?.name}{" "}
+              </h1>
               <p className="text-black opacity-30 text-xl"> #{pokemon?.id} </p>
               <p className="text-lg py-1 font-medium text-center bg-slate-600 rounded-full text-yellow-200 uppercase">
-                Eletrico{" "}
+                {pokemon.types[0].type.name}{" "}
               </p>
             </div>
           </header>

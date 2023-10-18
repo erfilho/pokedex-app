@@ -1,7 +1,32 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
 export default function Habilities() {
+  const { id } = useParams();
+  const [pokemon, setPokemon] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get(`https://pokeapi.co/api/v2/pokemon/${id}`)
+      .then(({ data }) => {
+        setPokemon(data);
+        console.log(pokemon);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [id]);
+
   return (
-    <div>
-      <h1> Habilities </h1>
+    <div className="text-slate-200 flex flex-col px-2">
+      <h1> 
+        {
+        pokemon?.moves[0].move.forEach(habilitie => {
+          habilitie.name
+        });
+      } 
+      </h1>
     </div>
   );
 }
