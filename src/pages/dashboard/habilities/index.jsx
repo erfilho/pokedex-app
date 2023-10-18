@@ -19,14 +19,10 @@ export default function Habilities() {
   }, [id]);
 
   return (
-    <div className="text-slate-200 flex flex-col px-2">
-      <h1> 
-        {
-        pokemon?.moves[0].move.forEach(habilitie => {
-          habilitie.name
-        });
-      } 
-      </h1>
+    <div className="text-slate-200 flex flex-col gap-2 w-full items-center px-2">
+      {pokemon?.abilities.map((hab) => (
+        <p className="">{hab.ability.name + " "}</p>
+      ))}
     </div>
   );
 }
