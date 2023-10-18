@@ -19,7 +19,7 @@ export default function Habilities() {
   }, [id]);
 
   return (
-    <div className="text-slate-200 flex flex-col gap-2 w-full items-center px-2">
+    <div className="text-slate-200 flex flex-col gap-2 w-full px-2">
       {pokemon?.abilities.map((hab) => (
         <p className="">{hab.ability.name + " "}</p>
       ))}
