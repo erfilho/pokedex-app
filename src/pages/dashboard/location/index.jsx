@@ -12,7 +12,6 @@ export default function Location() {
       .get(`https://pokeapi.co/api/v2/pokemon/${id}`)
       .then(({ data }) => {
         setPokemon(data);
-        console.log(pokemon);
       })
       .catch((error) => {
         console.error(error);
@@ -24,13 +23,14 @@ export default function Location() {
       .get(`https://pokeapi.co/api/v2/pokemon/${id}/encounters`)
       .then(({ data }) => {
         setLocate(data);
-        console.log(data);
       });
   }, [pokemon]);
 
   function format(str) {
     return (
-      <span className="text-lg capitalize">{str.replaceAll("-", " ")}</span>
+      <span key={str} className="text-lg capitalize">
+        {str.replaceAll("-", " ")}
+      </span>
     );
   }
 

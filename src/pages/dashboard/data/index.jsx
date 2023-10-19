@@ -11,7 +11,6 @@ export default function Data() {
       .get(`https://pokeapi.co/api/v2/pokemon/${id}`)
       .then(({ data }) => {
         setPokemon(data);
-        console.log(pokemon);
       })
       .catch((error) => {
         console.error(error);

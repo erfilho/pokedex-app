@@ -4,6 +4,7 @@ import Loading from "../../components/loading";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+import Search from "../../assets/search.svg";
 
 export default function Home() {
   const [search, setSearch] = useState("");
@@ -19,7 +20,6 @@ export default function Home() {
         setLoading(false);
       })
       .catch((error) => {
-        console.log(error);
         toast.error("Pokemon não encontrado");
         setLoading(false);
       });
@@ -73,7 +73,7 @@ export default function Home() {
   return (
     <div className="flex flex-col justify-center items-center w-full gap-10 text-slate-100 min-h-screen bg-red-500">
       <header className="w-full flex flex-col items-center gap-2">
-        <h1 className="text-2xl md:text-4xl font-bold">Pokédex</h1>
+        <h1 className="text-2xl md:text-4xl mt-4 font-bold">Pokédex</h1>
         <p className="">O seu catálogo de pokemons.</p>
         <div className="flex w-3/4 sm:w-3/5 md:w-2/4 lg:w-1/3 mt-4">
           <input
@@ -86,7 +86,7 @@ export default function Home() {
             onClick={searchPokemon}
             className="text-slate-200 rounded-e-full bg-slate-50 py-2 px-4"
           >
-            🔍
+            <img src={Search} alt="Buscar" />
           </button>
         </div>
       </header>

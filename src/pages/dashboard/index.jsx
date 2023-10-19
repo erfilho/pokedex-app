@@ -42,8 +42,8 @@ export default function Dashboard() {
       {loading ? (
         <Loading />
       ) : (
-        <>
-          <header className="max-w-4xl w-full flex flex-col items-start pt-10 gap-2 sm:w-8/12 px-10 sm:px-0">
+        <div className="w-full max-w-4xl mt-10 mx-auto sm:w-8/12 flex-1 flex flex-col gap-6">
+          <header className="w-full flex flex-col items-start gap-2 px-10 sm:px-0">
             <div>
               <h1 className="text-4xl font-semibold capitalize text-slate-800">
                 {pokemon?.name}
@@ -58,34 +58,34 @@ export default function Dashboard() {
               </span>
             </div>
           </header>
-          <main className="bg-slate-700 max-w-4xl w-full sm:w-8/12 rounded-t-3xl flex-1 sm:flex-initial sm:rounded-3xl p-4 relative">
+          <main className="w-full flex flex-col p-4 bg-slate-700 rounded-t-3xl sm:mb-10 flex-1 sm:flex-initial sm:rounded-3xl relative">
             <div>
               <img
                 src={pokemon?.sprites?.other["official-artwork"]?.front_default}
-                className="w-36 h-36 absolute right-0 -top-36 lg:w-48 lg:h-48 lg:-top-24"
+                className="w-36 h-36 absolute right-6 sm:right-0 -top-36 lg:w-48 lg:h-48 lg:-top-24"
                 alt={pokemon?.name}
               ></img>
               <Tabs />
               <Outlet />
             </div>
+            <div className="w-full mt-4 flex-1 flex items-end justify-between">
+              <button
+                onClick={() => changePokemon(pokemon?.id - 1)}
+                className="flex gap-2 items-center text-slate-400 py-2 pe-6 ps-4"
+              >
+                <img src={ArrowLeft} alt="Anterior" />
+                Anterior
+              </button>
+              <button
+                onClick={() => changePokemon(pokemon?.id + 1)}
+                className="flex gap-2 items-center text-slate-400 py-1 pe-4 ps-6"
+              >
+                Próximo
+                <img src={ArrowRight} alt="Próximo" />
+              </button>
+            </div>
           </main>
-          <div className="max-w-4xl flex justify-between w-full">
-            <button
-              onClick={() => changePokemon(pokemon?.id - 1)}
-              className="flex gap-2 items-center text-slate-400 py-2 pe-6 ps-4 rounded-full bg-slate-700"
-            >
-              <img src={ArrowLeft} alt="Anterior" />
-              Anterior
-            </button>
-            <button
-              onClick={() => changePokemon(pokemon?.id + 1)}
-              className="flex gap-2 items-center text-slate-400 py-1 pe-4 ps-6 rounded-full bg-slate-700"
-            >
-              Próximo
-              <img src={ArrowRight} alt="Próximo" />
-            </button>
-          </div>
-        </>
+        </div>
       )}
     </div>
   );
