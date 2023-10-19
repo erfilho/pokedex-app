@@ -20,9 +20,9 @@ export default function Data() {
 
   return (
     <div className="text-slate-200 flex flex-col px-2">
-      <h1> Peso: {pokemon?.height} </h1>
-      <h1> Altura: {pokemon?.weight} </h1>
-      <h1> XP Base: {pokemon?.base_experience} </h1>
+      <h1> Weight: {pokemon?.weight} </h1>
+      <h1> Height: {pokemon?.height} </h1>
+      <h1> Experience: {pokemon?.base_experience} </h1>
     </div>
   );
 }

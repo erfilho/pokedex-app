@@ -18,16 +18,19 @@ export default function Metrics() {
       });
   }, [id]);
 
+  function format(str) {
+    return (
+      <span className="text-lg capitalize">{str.replaceAll("-", " ")}</span>
+    );
+  }
+
   return (
     <div className="text-slate-200 flex flex-col gap-2 w-full px-2">
-      {pokemon?.stats.map((stat) => {
-        return (
-          <h1>
-            {" "}
-            {stat.stat.name}: {stat.base_stat}{" "}
-          </h1>
-        );
-      })}
+      {pokemon?.stats.map((stat) => (
+        <div>
+          {format(stat?.stat?.name)}: {stat?.base_stat}
+        </div>
+      ))}
     </div>
   );
 }

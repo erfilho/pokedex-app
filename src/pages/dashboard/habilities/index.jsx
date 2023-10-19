@@ -17,11 +17,15 @@ export default function Habilities() {
       });
   }, [id]);
 
+  function format(str) {
+    return (
+      <span className="text-lg capitalize">{str.replaceAll("-", " ")}</span>
+    );
+  }
+
   return (
     <div className="text-slate-200 flex flex-col gap-2 w-full px-2">
-      {pokemon?.abilities.map((hab) => (
-        <p className="">{hab.ability.name + " "}</p>
-      ))}
+      {pokemon?.abilities.map((hab) => format(hab?.ability?.name))}
     </div>
   );
 }

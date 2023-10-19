@@ -72,14 +72,14 @@ export default function Dashboard() {
           <div className="max-w-4xl flex justify-between w-full">
             <button
               onClick={() => changePokemon(pokemon?.id - 1)}
-              className="flex gap-2 items-center text-slate-200 py-2 pe-6 ps-4 rounded-full bg-slate-700"
+              className="flex gap-2 items-center text-slate-400 py-2 pe-6 ps-4 rounded-full bg-slate-700"
             >
               <img src={ArrowLeft} alt="Anterior" />
               Anterior
             </button>
             <button
               onClick={() => changePokemon(pokemon?.id + 1)}
-              className="flex gap-2 items-center text-slate-200 py-1 pe-4 ps-6 rounded-full bg-slate-700"
+              className="flex gap-2 items-center text-slate-400 py-1 pe-4 ps-6 rounded-full bg-slate-700"
             >
               Próximo
               <img src={ArrowRight} alt="Próximo" />

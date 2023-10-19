@@ -28,11 +28,15 @@ export default function Location() {
       });
   }, [pokemon]);
 
+  function format(str) {
+    return (
+      <span className="text-lg capitalize">{str.replaceAll("-", " ")}</span>
+    );
+  }
+
   return (
     <div className="text-slate-200 flex flex-col gap-2 w-full px-2">
-      {locate?.map((location) => (
-        <p className="">{location.location_area.name + " "}</p>
-      ))}
+      {locate?.map((location) => format(location?.location_area?.name))}
     </div>
   );
 }
