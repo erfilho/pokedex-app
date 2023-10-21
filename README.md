@@ -8,6 +8,9 @@ Este é um projeto desenvolvido por [Erineldo Filho](https://github.com/erfilho)
 * Axios
 * API Pokédex
 
+## Imagens
+* https://drive.google.com/drive/folders/1_CpvtmhsJ3Oo_FvRCyQK5qSKdBEHomFm?usp=share_link
+
 ## VSC Config
 `{
   "editor.fontSize": 16,
